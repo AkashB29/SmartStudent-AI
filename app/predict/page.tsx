@@ -13,6 +13,7 @@ import {
   Award,
   AlertCircle,
 } from "lucide-react";
+import Link from "next/link";
 
 type ModelType = "supervised" | "unsupervised";
 
@@ -253,14 +254,14 @@ export default function PredictPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen bg-linear-to-br from-indigo-50 via-white to-purple-50">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Brain className="w-8 h-8 text-indigo-600" />
-            <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              SmartStudent AI
+            <span className="text-xl font-bold bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <Link href={"/"}> SmartStudent AI</Link>
             </span>
           </div>
           <div className="text-sm text-gray-600">AI Prediction System</div>
@@ -271,7 +272,7 @@ export default function PredictPage() {
         <div className="max-w-6xl mx-auto">
           {/* Model Selection */}
           <div className="mb-8 text-center">
-            <h1 className="text-4xl font-bold mb-4">
+            <h1 className="text-4xl font-bold text-black mb-4">
               AI-Powered Student Analysis
             </h1>
             <p className="text-gray-600 mb-6">Choose your analysis type</p>
@@ -284,7 +285,7 @@ export default function PredictPage() {
                 }}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
                   modelType === "supervised"
-                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg"
+                    ? "bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-50"
                 }`}
               >
@@ -298,7 +299,7 @@ export default function PredictPage() {
                 }}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
                   modelType === "unsupervised"
-                    ? "bg-gradient-to-r from-pink-600 to-orange-600 text-white shadow-lg"
+                    ? "bg-linear-to-r from-pink-600 to-orange-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-50"
                 }`}
               >
@@ -313,11 +314,11 @@ export default function PredictPage() {
             <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-200">
               <div className="flex items-center gap-3 mb-6 pb-6 border-b border-gray-200">
                 {modelType === "supervised" ? (
-                  <div className="w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-linear-to-r from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                 ) : (
-                  <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-orange-600 rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-linear-to-r from-pink-600 to-orange-600 rounded-2xl flex items-center justify-center">
                     <Users className="w-6 h-6 text-white" />
                   </div>
                 )}
@@ -335,7 +336,7 @@ export default function PredictPage() {
                 </div>
               </div>
 
-              <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+              <div className="space-y-4  overflow-y-auto pr-2">
                 {inputFields
                   .filter((field) => !field.required || field.required)
                   .map((field) => (
@@ -352,7 +353,7 @@ export default function PredictPage() {
                         max={field.max}
                         step={field.step}
                         required={field.required}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                       />
                     </div>
                   ))}
@@ -369,7 +370,7 @@ export default function PredictPage() {
                         value={formData[field.name as keyof FormData]}
                         onChange={handleInputChange}
                         required={field.required}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                        className="w-full px-4 py-3 border-2 border-gray-200 text-gray-800 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                       >
                         {field.options.map((opt) => (
                           <option key={opt.value} value={opt.value}>
@@ -385,8 +386,8 @@ export default function PredictPage() {
                   onClick={handleSubmit}
                   className={`w-full py-4 rounded-xl font-bold text-white transition-all flex items-center justify-center gap-2 ${
                     modelType === "supervised"
-                      ? "bg-gradient-to-r from-indigo-600 to-purple-600 hover:shadow-lg hover:scale-[1.02]"
-                      : "bg-gradient-to-r from-pink-600 to-orange-600 hover:shadow-lg hover:scale-[1.02]"
+                      ? "bg-linear-to-r from-indigo-600 to-purple-600 hover:shadow-lg hover:scale-[1.02]"
+                      : "bg-linear-to-r from-pink-600 to-orange-600 hover:shadow-lg hover:scale-[1.02]"
                   } disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
                   {loading ? (
@@ -420,7 +421,7 @@ export default function PredictPage() {
               )}
 
               {result && result.model_type === "supervised" && (
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-8 border-2 border-indigo-200 shadow-xl">
+                <div className="bg-linear-to-br from-indigo-50 to-purple-50 rounded-3xl p-8 border-2 border-indigo-200 shadow-xl">
                   <div className="flex items-center gap-3 mb-6">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                     <h3 className="text-2xl font-bold text-gray-900">
@@ -430,13 +431,13 @@ export default function PredictPage() {
 
                   <div className="bg-white rounded-2xl p-6 mb-6 shadow-lg">
                     <div className="text-center">
-                      <div className="text-6xl font-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                      <div className="text-6xl font-black bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
                         {result.prediction}
                       </div>
                       <div className="text-2xl font-bold text-gray-700 mb-1">
                         Predicted Score
                       </div>
-                      <div className="inline-block px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-bold">
+                      <div className="inline-block px-4 py-2 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-full font-bold">
                         Grade: {result.grade}
                       </div>
                     </div>
@@ -496,7 +497,7 @@ export default function PredictPage() {
               )}
 
               {result && result.model_type === "unsupervised" && (
-                <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl p-8 border-2 border-pink-200 shadow-xl">
+                <div className="bg-linear-to-br from-pink-50 to-orange-50 rounded-3xl p-8 border-2 border-pink-200 shadow-xl">
                   <div className="flex items-center gap-3 mb-6">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                     <h3 className="text-2xl font-bold text-gray-900">
@@ -507,7 +508,7 @@ export default function PredictPage() {
                   {/* Cluster Badge */}
                   <div className="bg-white rounded-2xl p-6 mb-6 shadow-lg text-center">
                     <div className="text-6xl mb-3">{result.cluster_emoji}</div>
-                    <div className="text-4xl font-black bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                    <div className="text-4xl font-black bg-linear-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent mb-2">
                       {result.cluster_name}
                     </div>
                     <div className="text-gray-600 text-sm">
@@ -595,7 +596,7 @@ export default function PredictPage() {
                   )}
 
                   {/* Advice */}
-                  <div className="bg-gradient-to-r from-pink-600 to-orange-600 rounded-2xl p-5 text-white">
+                  <div className="bg-linear-to-r from-pink-600 to-orange-600 rounded-2xl p-5 text-white">
                     <h4 className="font-bold mb-2 flex items-center gap-2">
                       <AlertCircle className="w-5 h-5" />
                       Personalized Advice

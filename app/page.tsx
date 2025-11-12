@@ -43,7 +43,9 @@ export default function Home() {
             </div>
 
             <h1 className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight">
-              Predict Academic{" "}
+              <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Predict Academic{" "}
+              </span>
               <span className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Success
               </span>
@@ -99,7 +101,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Two Powerful{" "}
+              <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Two Powerful{" "}
+              </span>
+
               <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 AI Models
               </span>
@@ -181,7 +186,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How It Works
+              <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                How It Works
+              </span>
             </h2>
             <p className="text-xl text-gray-600">Simple, fast, and accurate</p>
           </div>
